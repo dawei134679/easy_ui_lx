@@ -1,0 +1,159 @@
+<html>
+  <head>
+    
+    <title>first easyui</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  <link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"></link>
+  <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"></link>
+  <script type="text/javascript" src="easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script></head>
+
+  <body>
+  
+ 
+<table id="dgg"></table> 
+   <script type="text/javascript">
+  $(function(){
+	  $('#dgg').datagrid({    
+	    url:'datagrid_data.json', 
+	    /* data: [
+			{productid:'value11', productname:'value12'},
+			{productid:'value21', productname:'value22'}
+		], */
+	    
+	    fitColumns:true,
+	    striped:true,
+	    //nowrap:false,
+	    //idField:'productid',
+	    //width:500,
+	    loadMsg:"正在查询中，请稍等。。。",
+	    pagination:true,
+	    //pageNumber:2,
+	    //pagePosition:'both',
+	    pageList:[5,10,15,20],	
+	    pageSize:5,
+	    rownumbers:true,
+	   // singleSelect:true, 
+	    queryParams: {
+			productname: '%%'
+		},
+		
+		//showHeader:false,
+		/* rowStyler: function(index,row){
+			if (row.unitcost>80){
+				return 'background-color:#6293BB;color:#fff;';
+			}
+		}, */
+		
+	    sortName:'unitcost',
+		sortOrder:'desc',
+        remoteSort:false,
+	       
+	    
+	 /*    frozenColumns:[[    
+	        {field:'productid',title:'产品编号',width:100}	        
+	    ]], */
+	    columns:[[
+	    	{checkbox:true},  
+	        {field:'productid',title:'产品编号',width:100},    
+	        {field:'productname',title:'产品名称',width:100}, 
+	        {field:'status',title:'status',width:100},   
+	        {field:'listprice',title:'listprice',width:100},   
+	        {field:'itemid',title:'itemid',width:100},      
+	        {
+	        	field:'unitcost',
+	        	title:'价格',
+	        	width:100,
+	        	align:'right',
+	        	/* styler: function(value,row,index){
+					if (value < 20){
+						return 'background-color:#ffee00;color:red;';
+					}
+				}, */
+				sortable:true
+
+	        	
+	        }    
+	    ]],
+	    toolbar: [{
+		iconCls: 'icon-add',
+		text:'添加',
+		handler: function(){
+			alert('添加按钮');
+		}
+		},'-',{
+			iconCls: 'icon-edit',
+			text:'修改',
+			handler: function(){
+				alert('修改按钮');
+			}
+		},'-',{
+			iconCls: 'icon-remove',
+			text:'删除',
+			handler: function(){
+				alert('删除按钮');
+				var rows = $('#dgg').datagrid("getSelections");
+				for(var i=0;i<rows.length;i++){
+					//alert(rows[i].productid);
+					var rowIndex = $('#dgg').datagrid("getRowIndex",rows[i]);
+					//alert(rowIndex);
+					$('#dgg').datagrid('deleteRow',rowIndex);
+				}
+			}
+		},'-',{
+			iconCls: 'icon-search',
+			text:"<input type='text' name='pname'/>查询",
+			handler: function(){
+				alert('查询按钮');
+			}
+		}],
+		
+		onClickCell: function(index,field,value){
+			alert("Click");
+		}	
+	       
+	}); 
+  });
+  //显示所有行的数据
+  function showRows(){
+  	var rows = $('#dgg').datagrid("getRows");
+  	for(var i = 0; i<rows.length;i++){
+  		alert(rows[i].productid+"||"+rows[i].productname);
+  	}  	
+  }
+  //添加行记录
+  function addRow(){
+  	$('#dgg').datagrid("appendRow",{
+  		productid:'CZ001',
+  		productname:'传智一号产品',
+  		unitcost:15000
+  	});
+  }
+  
+   //修改行记录
+  function updateRow(){
+  	$('#dgg').datagrid("updateRow",{
+	  	index:1,
+	  	row:{
+	  		productid:'CZ002',
+	  		productname:'传智二号产品',
+	  		unitcost:18000
+	  	}}
+	  );
+  }
+ 
+</script> 
+<!-- <input type="button" onclick="showRows()" value="showRows"/> 
+<input type="button" onclick="addRow()" value="addRow"/>
+<input type="button" onclick="updateRow()" value="updateRow"/>  -->
+  </body>
+</html>
