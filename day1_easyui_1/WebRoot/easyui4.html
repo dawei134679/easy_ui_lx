@@ -1,0 +1,55 @@
+<html>
+  <head>
+    
+    <title>first easyui</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  <link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"></link>
+  <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"></link>
+  <script type="text/javascript" src="easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script></head>
+  
+  <body>
+  <!-- 
+  	class：指定easyui控件类型；
+  	data-options:指定控件的属性或事件
+  	         属性：data-options="属性名：属性值[,属性名：属性值]"
+  	         事件： data-options="事件名：function(){}
+  	方法：$(选择器).控件类型(方法名，参数列表)
+   -->
+<!-- <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',toggle:true,selected:true">篮球</a>
+<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',toggle:true">足球</a>
+<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',toggle:true">游泳</a> -->
+ <a id="btn" href="#" class="easyui-linkbutton"  data-options="iconCls:'icon-search',disabled:true">男</a>
+<!-- <a id="btn1" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',toggle:true,plain:true">女</a> -->
+<script type="text/javascript">
+$(function(){
+	/* $('#btn').linkbutton("disable");
+	$('#btn').linkbutton("enable"); */
+	
+	$('#btn').bind('click', function(){    
+        alert(this.text);   
+        if ($(this).linkbutton('options').disabled == true) {
+        	alert('不给你提交');
+        }else{
+       		 alert('可以提交');
+        }
+    }); 
+	
+	
+	
+});
+/* function openPage(){
+	alert("open page");
+}
+ */
+</script>
+  </body>
+</html>

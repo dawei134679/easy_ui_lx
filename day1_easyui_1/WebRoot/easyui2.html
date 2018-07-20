@@ -1,0 +1,60 @@
+<html>
+<head>
+
+<title>first easyui</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+<link rel="stylesheet" href="easyui/themes/default/easyui.css"
+	type="text/css"></link>
+<link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"></link>
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+</head>
+
+<body>
+	<!-- 
+  	class：指定easyui控件类型；
+  	data-options:指定控件的属性或事件
+  	         属性：data-options="属性名：属性值[,属性名：属性值]"
+  	         事件： data-options="事件名：function(){}
+  	方法：$(选择器).控件类型(方法名，参数列表)
+   -->
+	<div id="cc" class="easyui-layout" data-options="fit:true">
+		<div
+			data-options="region:'north',title:'欢迎使用进销存系统',split:true,border:true"
+			style="height: 130px;"></div>
+		<div data-options="region:'south',title:'软件版权或公司联系信息',split:true"
+			style="height: 100px;"></div>
+		<div
+			data-options="region:'east',collapsible:false,iconCls:'icon-reload',title:'公告或新闻',split:true"
+			style="width: 200px;"></div>
+		<div
+			data-options="region:'west',minWidth:100,iconCls:'icon-save',title:'导航菜单',split:true"
+			style="width: 150px;"></div>
+		<div data-options="region:'center',title:'相关的主要内容'"
+			style="padding: 5px; background: #eee;"></div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			//$('#cc').layout('collapse','west');
+			/* $('#cc').layout('add',{
+				region:'west',
+				iconCls:'icon-save',
+				title:'导航菜单',
+				split:true,
+				width:150		
+			}); */
+
+			//$('#cc').layout('remove','east');
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+  <head>
+    
+    <title>first easyui</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  <link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"></link>
+  <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"></link>
+  <script type="text/javascript" src="easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script></head>
+  
+  <body>
+<div id="tt" class="easyui-tabs" data-options="fit:true,plain:false,border:false,scrollIncrement:100,scrollDuration:2000" style="width:400px;height:250px;">   
+    <div title="用户管理" style="padding:20px;">   
+        tab1    
+    </div>   
+    <div title="角色管理" data-options="closable:true,collapsible:true" style="overflow:auto;padding:20px;">   
+        tab2    
+    </div>   
+    <div title="Tab3" data-options="iconCls:'icon-reload',closable:true" style="padding:20px;">   
+        tab3    
+    </div>   
+    
+     <div title="Tab4" data-options="closable:true" style="padding:20px;">   
+        tab4    
+    </div>   
+   
+      <!--closable	boolean	当设置为 true 时，标签页面板（tab panel）将显示一个关闭按钮，点击它就能关闭这个标签页面板（tab panel）。  -->
+</div> 
+<script type="text/javascript">
+	$(function(){
+		$('#tt').tabs("add",{
+			title:'新面板',
+			content:'这是一个新的面板',
+			closable:true,
+			selected:true
+		});
+		
+		//$('#tt').tabs("close",'Tab3');
+		alert($('#tt').tabs("exists",'角色管理'));
+		
+		$('#tt').tabs("select",'角色管理');
+		
+	});
+
+</script>
+
+  </body>
+</html>

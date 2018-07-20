@@ -1,0 +1,68 @@
+<html>
+  <head>
+    
+    <title>first easyui</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  <link rel="stylesheet" href="easyui/themes/default/easyui.css" type="text/css"></link>
+  <link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"></link>
+  <script type="text/javascript" src="easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script></head>
+  
+  <body>
+  <!-- 
+  	class：指定easyui控件类型；
+  	data-options:指定控件的属性或事件
+  	         属性：data-options="属性名：属性值[,属性名：属性值]"
+  	         事件： data-options="事件名：function(){}
+  	方法：$(选择器).控件类型(方法名，参数列表)
+   -->
+<div id="aa" class="easyui-accordion" data-options="fit:true,border:false,animate:true" style="width:300px;height:200px;">   
+    <div title="Title1" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">   
+        <h3 style="color:#0099FF;">Accordion for jQuery</h3>   
+        <p>Accordion is a part of easyui framework for jQuery.     
+        It lets you define your accordion component on web page more easily.</p>   
+    </div>   
+    <div title="Title2" data-options="iconCls:'icon-reload'" style="padding:10px;">   
+        content2    
+    </div>   
+    <div title="Title3">   
+        <input type="button" onclick="add()" value="add"/>   
+        <input type="button" onclick="del()" value="del"/> 
+    </div>   
+</div> 
+<script type="text/javascript">
+	$(function(){
+	
+		/* var os=$('#aa').accordion('options');
+		alert(os.fit+"||"+os.animate); */
+		/* $('#aa').accordion({
+			onAdd:function(index){
+				alert(index);
+			}
+		});	 */
+		
+		
+	});
+	
+	function add(){
+		$('#aa').accordion('add', {
+			title: '新标题',
+			content: '新内容',
+			selected: true
+		});	
+	}
+	function del(){
+		$('#aa').accordion('remove','新标题');	
+	}
+</script>
+    
+  </body>
+</html>

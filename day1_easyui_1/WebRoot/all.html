@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<title>first easyui</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+<link rel="stylesheet" href="easyui/themes/default/easyui.css"
+	type="text/css"></link>
+<link rel="stylesheet" href="easyui/themes/icon.css" type="text/css"></link>
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+	function openPage(btn) {
+		//alert("open" + btn.text);
+		//判断对应的面板是否存在，如果存在，将选 中对应的面板
+		if ($('#tt').tabs('exists', btn.text)) {
+			$('#tt').tabs("select", btn.text);
+		} else {
+			$('#tt').tabs("add", {
+				title : btn.text,
+				content : btn.text + '信息界面',
+				closable : true,
+				selected : true
+
+			});
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="cc" class="easyui-layout" data-options="fit:true">
+		<div
+			data-options="region:'north',title:'欢迎使用进销存系统',split:true,border:true"
+			style="height: 130px;"></div>
+		<div data-options="region:'south',title:'软件版权或公司联系信息',split:true"
+			style="height: 100px;"></div>
+		<div
+			data-options="region:'east',collapsible:false,iconCls:'icon-reload',title:'公告或新闻',split:true"
+			style="width: 200px;"></div>
+		<div
+			data-options="region:'west',minWidth:100,iconCls:'icon-save',title:'导航菜单',split:true"
+			style="width: 150px;">
+
+			<div id="aa" class="easyui-accordion"
+				style="width: 300px; height: 200px;">
+				<div title="系统管理" data-options="iconCls:'icon-save'"
+					style="overflow: auto; padding: 10px;">
+					<a id="btn" href="#" class="easyui-linkbutton"
+						onclick="openPage(this)" data-options="iconCls:'icon-search'">用户管理</a>
+					<br> <a id="btn" href="#" class="easyui-linkbutton"
+						onclick="openPage(this)" data-options="iconCls:'icon-search'">角色管理</a>
+					<br> <a id="btn" href="#" class="easyui-linkbutton"
+						onclick="openPage(this)" data-options="iconCls:'icon-search'">参数管理</a>
+					<br> <a id="btn" href="#" class="easyui-linkbutton"
+						onclick="openPage(this)" data-options="iconCls:'icon-search'">菜单管理</a>
+					<br>
+
+				</div>
+				<div title="进货管理" data-options="iconCls:'icon-save'"
+					style="overflow: auto; padding: 10px;">
+					用户管理<br> 角色管理<br> 参数管理<br> 菜单管理 <br>
+				</div>
+				<div title="销售管理" data-options="iconCls:'icon-save'"
+					style="overflow: auto; padding: 10px;">
+					用户管理<br> 角色管理<br> 参数管理<br> 菜单管理 <br>
+				</div>
+
+			</div>
+
+		</div>
+		<div data-options="region:'center',title:'相关的主要内容'"
+			style="padding: 5px; background: #eee;">
+
+
+			<div id="tt" class="easyui-tabs" data-options="fit:true"
+				style="width: 500px; height: 250px;">
+				<div title="进销存系统介绍" style="padding: 20px;">
+					传智进销存系统经过了我们35期同学改造，很好了。。。。。。。！</div>
+
+			</div>
+
+		</div>
+	</div>
+	
+
+</body>
+</html>
